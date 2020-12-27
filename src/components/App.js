@@ -9,7 +9,7 @@ import BrazilRegion from "fusionmaps/maps/es/fusioncharts.brazil";
 import ReactFC from "react-fusioncharts";
 import "./charts-theme";
 
-import config from "./config";
+// import config from "./config";
 import Dropdown from "react-dropdown";
 // import formatNum from "./format-number";
 
