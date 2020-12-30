@@ -64,7 +64,7 @@ class App extends Component {
     }
 
     loadData = async () => {
-        await axios.get(`http://pdb.frz.codes/dashboards`).then((res) => {
+        await axios.get(`https://pdb.frz.codes/dashboards`).then((res) => {
             const data = res.data;
             this.setState({
                 total_revenue: data.total_revenue,
