@@ -64,53 +64,51 @@ class App extends Component {
     }
 
     loadData = async () => {
-        await axios
-            .get(`https://pdb-flink.herokuapp.com/Dashboard/`)
-            .then((res) => {
-                const data = res.data;
-                this.setState({
-                    total_revenue: data.total_revenue,
-                    total_customer: data.total_customer,
-                    total_order: data.total_order,
-                    top_products: JSON.parse(
-                        data.top_products.replaceAll("'", '"')
-                    ),
-                    top_customers: JSON.parse(
-                        data.top_customers.replaceAll("'", '"')
-                    ),
-                });
-                const trend_seller = [];
-                const trend_region = [];
-                const data_trend_seller = JSON.parse(
-                    data.trend_seller.replaceAll("'", '"')
-                );
-                const data_trend_region = JSON.parse(
-                    data.trend_region.replaceAll("'", '"')
-                );
-                for (let i = 0; i < 5; i++) {
-                    trend_seller.push({
-                        label: data_trend_seller[i].nama,
-                        value: data_trend_seller[i].total_order,
-                        displayValue: `${data_trend_seller[i].total_order} orders`,
-                    });
-                }
-                this.setState({ ordersTrendStore: trend_seller });
-                for (let i = 0; i < 27; i++) {
-                    console.log(data_trend_region[i]);
-                    trend_region.push({
-                        id:
-                            BRAZIL_MAP_ID[
-                                data_trend_region[i].city_name.toUpperCase()
-                            ],
-                        value: data_trend_region[i].total_order,
-                        displayValue: `${data_trend_region[
-                            i
-                        ].city_name.toUpperCase()}`,
-                    });
-                }
-                this.setState({ ordersTrendRegion: trend_region });
-                console.log(trend_region);
+        await axios.get(`http://pdb.frz.codes/dashboards`).then((res) => {
+            const data = res.data;
+            this.setState({
+                total_revenue: data.total_revenue,
+                total_customer: data.total_customer,
+                total_order: data.total_order,
+                top_products: JSON.parse(
+                    data.top_products.replaceAll("'", '"')
+                ),
+                top_customers: JSON.parse(
+                    data.top_customers.replaceAll("'", '"')
+                ),
             });
+            const trend_seller = [];
+            const trend_region = [];
+            const data_trend_seller = JSON.parse(
+                data.trend_seller.replaceAll("'", '"')
+            );
+            const data_trend_region = JSON.parse(
+                data.trend_region.replaceAll("'", '"')
+            );
+            for (let i = 0; i < 5; i++) {
+                trend_seller.push({
+                    label: data_trend_seller[i].nama,
+                    value: data_trend_seller[i].total_order,
+                    displayValue: `${data_trend_seller[i].total_order} orders`,
+                });
+            }
+            this.setState({ ordersTrendStore: trend_seller });
+            for (let i = 0; i < 27; i++) {
+                console.log(data_trend_region[i]);
+                trend_region.push({
+                    id:
+                        BRAZIL_MAP_ID[
+                            data_trend_region[i].city_name.toUpperCase()
+                        ],
+                    value: data_trend_region[i].total_order,
+                    displayValue: `${data_trend_region[
+                        i
+                    ].city_name.toUpperCase()}`,
+                });
+            }
+            this.setState({ ordersTrendRegion: trend_region });
+            console.log(trend_region);
+        });
     };
 
     updateDashboard = (event) => {
