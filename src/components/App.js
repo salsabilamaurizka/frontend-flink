@@ -10,7 +10,7 @@ import ReactFC from "react-fusioncharts";
 import "./charts-theme";
 
 // import config from "./config";
-import Dropdown from "react-dropdown";
+// import Dropdown from "react-dropdown";
 // import formatNum from "./format-number";
 
 import axios from "axios";
@@ -118,12 +118,10 @@ class App extends Component {
             });
     };
 
-
     updateDashboard = (event) => {
         this.getData(event.value);
         this.setState({ selectedValue: event.value });
     };
-
 
     render() {
         console.log(this.state.ordersTrendRegion);
@@ -151,8 +149,7 @@ class App extends Component {
                 {/* static navbar - bottom */}
                 <Nav className="navbar fixed-top nav-secondary is-dark is-light-text">
                     <Container className="text-medium">Summary</Container>
-                    <Container className="navbar-nav ml-auto">
-                    </Container>
+                    <Container className="navbar-nav ml-auto"></Container>
                 </Nav>
 
                 {/* content area start */}
