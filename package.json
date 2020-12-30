@@ -5,6 +5,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "bootstrap": "^4.5.3",
+    "browserslist": "^4.16.0",
     "fusioncharts": "^3.13.3-sr.1",
     "fusionmaps": "^3.13.1-sr.1",
     "react": "^16.7.0",
