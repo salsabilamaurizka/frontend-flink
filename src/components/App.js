@@ -9,17 +9,12 @@ import BrazilRegion from "fusionmaps/maps/es/fusioncharts.brazil";
 import ReactFC from "react-fusioncharts";
 import "./charts-theme";
 
-// import config from "./config";
-// import Dropdown from "react-dropdown";
-// import formatNum from "./format-number";
-
 import axios from "axios";
 
 import UserImg from "../assets/images/user-img-placeholder.jpeg";
 
 ReactFC.fcRoot(FusionCharts, Charts, Maps, BrazilRegion);
 
-// const url = `https://sheets.googleapis.com/v4/spreadsheets/${config.spreadsheetId}/values:batchGet?ranges=Sheet1&majorDimension=ROWS&key=${config.apiKey}`;
 const BRAZIL_MAP_ID = {
     AC: "001",
     AL: "002",
